@@ -8,4 +8,5 @@ data class CreateUserRequest(
     val score: Int,
     val email: String? = null,
     val website: String? = null,
+    val dearHacker: String? = null,
 )

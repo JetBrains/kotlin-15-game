@@ -16,7 +16,12 @@ data class CreateUserRequest(
     val name: String,
     val score: Int,
     val email: String? = null,
+    val dearHacker: String = DEAR_HACKER,
 )
+
+private val DEAR_HACKER = """
+    Hey, fellow dev! Yeah, the highscore POST is easy to forge. We know, and it's fine, the board's just for fun. Be cool, leave some room for the next person!
+""".trimIndent()
 
 @Serializable
 data class HighscoreEntry(
@@ -42,6 +47,7 @@ object ApiClient {
             json(Json {
                 ignoreUnknownKeys = true
                 isLenient = true
+                encodeDefaults = true
             })
         }
         defaultRequest {
