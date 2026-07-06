@@ -42,15 +42,15 @@ fun MainMenu(gameState: GameState) {
         MainMenuPanel(gameState, modifier = Modifier.align(Alignment.Center))
         GithubCorner(modifier = Modifier.align(Alignment.TopEnd))
         if (isPortrait()) {
-            PortraitWarningBanner(modifier = Modifier.align(Alignment.TopCenter))
+            DeviceHintBanner(modifier = Modifier.align(Alignment.BottomCenter))
         }
     }
 }
 
 @Composable
-private fun PortraitWarningBanner(modifier: Modifier = Modifier) {
-    val text = "Kodee vs Friction is best played in landscape mode."
-    val fontSize = compactOr(36.sp, 48.sp)
+private fun DeviceHintBanner(modifier: Modifier = Modifier) {
+    val text = "Kodee vs Friction is best played on desktop. On mobile, play in landscape mode."
+    val fontSize = compactOr(24.sp, 36.sp)
     val font = pixelFont()
     val outlineStyle = remember(fontSize) {
         TextStyle(
@@ -65,7 +65,7 @@ private fun PortraitWarningBanner(modifier: Modifier = Modifier) {
         TextStyle(
             fontFamily = font,
             fontSize = fontSize,
-            color = MenuColors.ERROR_TEXT,
+            color = Color.White,
             textAlign = TextAlign.Center,
         )
     }
